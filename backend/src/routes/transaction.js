@@ -2,21 +2,34 @@ const express = require('express');
 const router = express.Router();
 const { checkSimSwap } = require('../services/simCheck');
 const { checkNewDevice } = require('../services/deviceCheck');
+const { checkMessage } = require('../services/messageCheck');
+const { checkBehaviour } = require('../services/behaviourCheck');
 const { aggregateRisk } = require('../services/aggregator');
+const messages = require('../../../mock-data/messages.json');
 
 const cases = {};
 
 router.post('/', async (req, res) => {
   const { user_id, amount, recipient, timestamp, device_id } = req.body;
-  
+
+  // System checks (sync)
   const simSwap = checkSimSwap(user_id);
   const newDevice = checkNewDevice(user_id, device_id || 'D999');
-  
-  const message = { classification: "SCAM", confidence: 96, reasons: ["Impersonation", "Urgency language"] };
-  const behaviour = { anomaly: true, confidence: 94, reasons: ["Unusual amount", "Unknown recipient"] };
-  
+
+  // Find the scam message for this user
+  const userMessage = messages.find(m => m.user_id === user_id);
+  const messageContent = userMessage ? userMessage.content : '';
+
+  // AI checks (async, run in parallel)
+  const [message, behaviour] = await Promise.all([
+    checkMessage(messageContent),
+    checkBehaviour(user_id, { amount, recipient, timestamp })
+  ]);
+
+  // Aggregate
   const risk = aggregateRisk({ simSwap, newDevice, message, behaviour });
-  
+
+  // Build case
   const caseId = `CASE-${Date.now()}`;
   const caseData = {
     id: caseId,
@@ -35,9 +48,9 @@ router.post('/', async (req, res) => {
       { time: "09:26", event: risk.action === 'HOLD' ? "PAYMENT HELD" : "Payment processed", status: risk.action === 'HOLD' ? "danger" : "success" }
     ]
   };
-  
+
   cases[caseId] = caseData;
-  
+
   res.json(caseData);
 });
 
