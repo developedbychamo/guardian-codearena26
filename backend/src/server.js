@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Routes
+app.use('/api/transaction', require('./routes/transaction'));
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'Guardian API' });

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "T001",
+    "user_id": "U001",
+    "amount": 85000,
+    "recipient": "R999",
+    "timestamp": "2026-09-11T09:26:00",
+    "status": "pending"
+  },
+  {
+    "id": "T002",
+    "user_id": "U002",
+    "amount": 2500,
+    "recipient": "R003",
+    "timestamp": "2026-09-11T09:25:00",
+    "status": "completed"
+  }
+]

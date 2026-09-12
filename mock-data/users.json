@@ -1,0 +1,39 @@
+[
+  {
+    "id": "U001",
+    "name": "Kamal Perera",
+    "phone": "+94771234567",
+    "balance": 250000,
+    "sim_swaps": [
+      { "timestamp": "2026-09-11T09:18:00", "reason": "replacement" }
+    ],
+    "devices": [
+      { "id": "D001", "name": "iPhone 13", "last_login": "2026-09-11T09:23:00" }
+    ],
+    "known_recipients": ["R001", "R002"]
+  },
+  {
+    "id": "U002",
+    "name": "Nimali Silva",
+    "phone": "+94779876543",
+    "balance": 420000,
+    "sim_swaps": [],
+    "devices": [
+      { "id": "D002", "name": "Samsung S23", "last_login": "2026-09-11T08:00:00" }
+    ],
+    "known_recipients": ["R003"]
+  },
+  {
+    "id": "U003",
+    "name": "Sunil Fernando",
+    "phone": "+94775555555",
+    "balance": 180000,
+    "sim_swaps": [
+      { "timestamp": "2026-09-11T09:20:00", "reason": "replacement" }
+    ],
+    "devices": [
+      { "id": "D003", "name": "Xiaomi 13", "last_login": "2026-09-11T09:22:00" }
+    ],
+    "known_recipients": ["R001"]
+  }
+]

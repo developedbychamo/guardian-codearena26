@@ -1,0 +1,23 @@
+[
+  {
+    "id": "M001",
+    "user_id": "U001",
+    "content": "Your Dialog wallet has been suspended. Verify immediately: http://dialog-verify.xyz",
+    "timestamp": "2026-09-11T09:12:00",
+    "sender": "+94770000000"
+  },
+  {
+    "id": "M002",
+    "user_id": "U003",
+    "content": "URGENT: Your eZ Cash account needs verification. Click here: http://ezcash-secure.top",
+    "timestamp": "2026-09-11T09:14:00",
+    "sender": "+94771111111"
+  },
+  {
+    "id": "M003",
+    "user_id": "U002",
+    "content": "Your OTP is 4829. Do not share with anyone.",
+    "timestamp": "2026-09-11T09:10:00",
+    "sender": "Dialog"
+  }
+]

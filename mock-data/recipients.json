@@ -1,0 +1,6 @@
+[
+  { "id": "R001", "name": "Known Contact", "trusted": true },
+  { "id": "R002", "name": "Known Contact", "trusted": true },
+  { "id": "R003", "name": "Known Contact", "trusted": true },
+  { "id": "R999", "name": "Unknown", "trusted": false }
+]

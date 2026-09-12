@@ -1,0 +1,16 @@
+[
+  {
+    "user_id": "U001",
+    "timestamp": "2026-09-11T09:18:00",
+    "old_sim": "SIM001",
+    "new_sim": "SIM002",
+    "location": "Colombo 03"
+  },
+  {
+    "user_id": "U003",
+    "timestamp": "2026-09-11T09:20:00",
+    "old_sim": "SIM003",
+    "new_sim": "SIM004",
+    "location": "Colombo 03"
+  }
+]
